@@ -1,0 +1,1 @@
+/usr/bin/c++ -fPIC -flto -shared  -o wacoh_sensor.cpython-310-x86_64-linux-gnu.so CMakeFiles/wacoh_sensor.dir/bindings.cpp.o CMakeFiles/wacoh_sensor.dir/src/Wacoh_linux.cpp.o 
