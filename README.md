@@ -29,22 +29,26 @@ This builds the C++ interface for reading the DynPick USB force sensor.
 
 If you encounter a `Permission denied` error on `/dev/ttyUSB0`:
 
-1. **Check port ownership:**
+1. **Find the device:**
    ```bash
-   ls -l /dev/ttyUSB0
-   # Expected: crw-rw---- 1 root dialout ...
+   ls -l /dev/ttyACM* /dev/ttyUSB* 2>/dev/null
    ```
 
 2. **Add yourself to the dialout group:**
    ```bash
    sudo usermod -aG dialout $USER
+   sudo usermod -aG plugdev $USER
    ```
 
 3. **Apply the new group permission:**
    ```bash
    newgrp dialout
    ```
-   Or simply reboot your system.
+   Or
+   ```bash
+   sudo chmod a+rw /dev/ttyUSB0 #Sensor DynPick Wacoh
+   sudo chmod a+rw /dev/ttyACM0 # Haptic Touch 3d
+   ```
 
 ## 🧠 Generate GNN Command Dataset
 
